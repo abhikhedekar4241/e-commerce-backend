@@ -47,6 +47,6 @@ const schema: Schema = new Schema(
   { versionKey: false }
 );
 
-const Booking: Model<IBooking> = model("Address", schema);
+const Booking: Model<IBooking> = model("Booking", schema);
 
 export default Booking;

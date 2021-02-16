@@ -1,6 +1,6 @@
 import Category from "@entities/category";
 import Item from "@entities/item";
-import Review from "@entities/Review";
+import Review from "@entities/review";
 import SubCategory from "@entities/sub-category";
 import handler from "./handler";
 

@@ -1,6 +1,6 @@
 import { Router } from "express";
-import authController from "src/controllers/auth";
-import userController from "src/controllers/user";
+import authController from "../controllers/auth";
+import userController from "../controllers/user";
 
 export const userRouter: Router = Router()
   // User authentication

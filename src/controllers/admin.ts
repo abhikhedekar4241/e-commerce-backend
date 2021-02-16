@@ -1,9 +1,9 @@
-import catchAsync from "src/utils/catch-async";
+import catchAsync from "../utils/catch-async";
 import { IRequest } from "@shared/constants";
 import { Response } from "express";
 import mongoose from "mongoose";
-import sendResponse from "src/utils/send-response";
-import handler from "src/controllers/handler";
+import sendResponse from "../utils/send-response";
+import handler from "./handler";
 import Booking from "@entities/booking";
 
 const dropAll = catchAsync(async (req: IRequest, res: Response) => {

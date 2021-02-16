@@ -1,11 +1,11 @@
 import { Model, Schema } from "mongoose";
-import catchAsync from "src/utils/catch-async";
+import catchAsync from "../utils/catch-async";
 import { IRequest } from "@shared/constants";
 import { Response, NextFunction } from "express";
 import User from "@entities/user";
-import AppError from "src/utils/app-error";
-import sendResponse from "src/utils/send-response";
-import APIFeatures from "src/utils/api-features";
+import AppError from "../utils/app-error";
+import sendResponse from "../utils/send-response";
+import APIFeatures from "../utils/api-features";
 import { StatusCodes } from "http-status-codes";
 
 const deleteFromUser = (Model: Model<any>, property: string, docId: string) =>

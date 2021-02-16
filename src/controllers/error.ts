@@ -1,4 +1,4 @@
-import AppError from "src/utils/app-error";
+import AppError from "../utils/app-error";
 import { IRequest } from "@shared/constants";
 import { NextFunction, Response } from "express";
 

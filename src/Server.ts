@@ -7,7 +7,7 @@ import express, { ErrorRequestHandler, Request, Response } from "express";
 import "express-async-errors";
 
 import BaseRouter from "./routes";
-import globalErrorHandler from "src/controllers/error";
+import globalErrorHandler from "./controllers/error";
 
 const app = express();
 

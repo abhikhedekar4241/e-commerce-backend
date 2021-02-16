@@ -1,14 +1,14 @@
 import { Router } from "express";
-import { addressRouter, userRouter } from "src/routes/user";
+import { addressRouter, userRouter } from "./user";
 import {
   categoryRouter,
   itemRouter,
   reviewRouter,
   subCategoryRouter,
-} from "src/routes/inventory";
-import { offerRouter } from "src/routes/offer";
-import { bookingRouter } from "src/routes/booking";
-import { adminRouter } from "src/routes/admin";
+} from "./inventory";
+import { offerRouter } from "./offer";
+import { bookingRouter } from "./booking";
+import { adminRouter } from "./admin";
 // Init router and path
 const router = Router();
 

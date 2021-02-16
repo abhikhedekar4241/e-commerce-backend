@@ -1,6 +1,6 @@
 import { RequestHandler, Router } from "express";
-import inventory from "src/controllers/inventory";
-import authController from "src/controllers/auth";
+import inventory from "../controllers/inventory";
+import authController from "../controllers/auth";
 
 /**
  * Handles Category related routes.

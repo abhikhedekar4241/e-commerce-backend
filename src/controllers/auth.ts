@@ -1,15 +1,15 @@
 import jwt from "jsonwebtoken";
 import { IUser } from "@entities/user";
 import { CookieOptions, NextFunction, Response } from "express";
-import catchAsync from "src/utils/catch-async";
+import catchAsync from "../utils/catch-async";
 import { IRequest } from "@shared/constants";
 import User from "@entities/user";
 import { StatusCodes } from "http-status-codes";
-import AppError from "src/utils/app-error";
-import sendResponse from "src/utils/send-response";
+import AppError from "../utils/app-error";
+import sendResponse from "../utils/send-response";
 import { promisify } from "util";
 import crypto from "crypto";
-import EmailService from "src/utils/email-service";
+import EmailService from "../utils/email-service";
 
 /**
  * Sign token using json web token.

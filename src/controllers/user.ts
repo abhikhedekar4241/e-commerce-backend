@@ -1,4 +1,4 @@
-import Address from "@entities/Address";
+import Address from "@entities/address";
 import CartItem from "@entities/cart-item";
 import Item from "@entities/item";
 import userHandler from "./user-handler";

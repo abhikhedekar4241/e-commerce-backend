@@ -1,6 +1,6 @@
 import { RequestHandler, Router } from "express";
-import adminController from "src/controllers/admin";
-import authController from "src/controllers/auth";
+import adminController from "../controllers/admin";
+import authController from "../controllers/auth";
 
 /**
  * Handles admin routes.

@@ -1,12 +1,12 @@
 import Booking from "@entities/booking";
-import catchAsync from "src/utils/catch-async";
+import catchAsync from "../utils/catch-async";
 import { IRequest } from "@shared/constants";
 import { Response, NextFunction } from "express";
-import sendResponse from "src/utils/send-response";
-import AppError from "src/utils/app-error";
+import sendResponse from "../utils/send-response";
+import AppError from "../utils/app-error";
 import { StatusCodes } from "http-status-codes";
 import CartItem, { ICartItem } from "../entities/cart-item";
-import handler from "src/controllers/handler";
+import handler from "./handler";
 
 const getBookings = catchAsync(
   async (req: IRequest, res: Response, next: NextFunction) => {

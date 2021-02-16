@@ -1,6 +1,6 @@
 import { Router } from "express";
-import authController from "src/controllers/auth";
-import bookingController from "src/controllers/booking";
+import authController from "../controllers/auth";
+import bookingController from "../controllers/booking";
 
 /**
  * Handles booking related routes.

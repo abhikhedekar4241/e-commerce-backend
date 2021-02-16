@@ -1,4 +1,4 @@
-import catchAsync from "src/utils/catch-async";
+import catchAsync from "../utils/catch-async";
 import { IRequest } from "@shared/constants";
 import { NextFunction } from "express";
 import { Model } from "mongoose";

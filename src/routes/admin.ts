@@ -26,62 +26,10 @@ export const adminRouter = Router()
   )
 
   .get(
-    "/banner",
-    authController.protect,
-    authController.restrictTo("admin") as RequestHandler,
-    adminController.getBannerImages
-  )
-  .put(
-    "/banner",
-    authController.protect,
-    authController.restrictTo("admin") as RequestHandler,
-    adminController.updateBannerImages
-  )
-
-  .get(
-    "/coupon",
-    authController.protect,
-    authController.restrictTo("admin") as RequestHandler,
-    adminController.getCoupons
-  )
-  .put(
-    "/coupon",
-    authController.protect,
-    authController.restrictTo("admin") as RequestHandler,
-    adminController.updateCoupons
-  )
-
-  .get(
     "/push-notification",
     authController.protect,
     authController.restrictTo("admin") as RequestHandler,
     adminController.sendPushNotification
-  )
-
-  .get(
-    "/app-settings",
-    authController.protect,
-    authController.restrictTo("admin") as RequestHandler,
-    adminController.getAppSettings
-  )
-  .put(
-    "/app-settings",
-    authController.protect,
-    authController.restrictTo("admin") as RequestHandler,
-    adminController.updateAppSettings
-  )
-
-  .get(
-    "/back-panel-settings",
-    authController.protect,
-    authController.restrictTo("admin") as RequestHandler,
-    adminController.getBackPanelSettings
-  )
-  .put(
-    "/back-panel-settings",
-    authController.protect,
-    authController.restrictTo("admin") as RequestHandler,
-    adminController.updateBackPanelSettings
   )
 
   .delete(

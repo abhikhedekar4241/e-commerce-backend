@@ -32,8 +32,7 @@ const addBooking = catchAsync(
   async (req: IRequest, res: Response, next: NextFunction) => {
     // Calculate amount. (Don't trust client)
     const cart = req.body.cart;
-    const amount = await calculateAmount(cart);
-    req.body.amount = amount;
+     req.body.amount = await calculateAmount(cart);
     req.body.user = req.user._id;
 
     const doc = await Booking.create(req.body);
@@ -48,8 +47,7 @@ const updateBooking = catchAsync(
   async (req: IRequest, res: Response, next: NextFunction) => {
     // Calculate amount. (Again..., don't trust client)
     const cart = req.body.cart;
-    const amount = await calculateAmount(cart);
-    req.body.amount = amount;
+     req.body.amount = await calculateAmount(cart);
     if (req.body.user) req.body.user = req.user._id;
 
     const doc = await Booking.findByIdAndUpdate(req.params.id, req.body, {

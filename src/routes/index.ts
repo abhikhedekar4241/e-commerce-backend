@@ -9,6 +9,8 @@ import {
 import { offerRouter } from "./offer";
 import { bookingRouter } from "./booking";
 import { adminRouter } from "./admin";
+import { settingsRouter } from "./settings";
+
 // Init router and path
 const router = Router();
 
@@ -22,6 +24,7 @@ router.use("/item", itemRouter);
 router.use("/review", reviewRouter);
 router.use("/offer", offerRouter);
 router.use("/booking", bookingRouter);
+router.use("/settings", settingsRouter);
 
 /**
  * Base api router.

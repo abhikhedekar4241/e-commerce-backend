@@ -21,8 +21,16 @@ const deleteFromUser = (Model: Model<any>, property: string, docId: string) =>
         .get(property)
         .filter((id: Schema.Types.ObjectId) => id.toString() !== doc),
     });
-    if (!doc) return next(new AppError(404, "No document found with that ID"));
-    sendResponse(null, 204, "Document deleted successfully.", res);
+    if (!doc)
+      return next(
+        new AppError(StatusCodes.NOT_FOUND, "No document found with that ID")
+      );
+    sendResponse(
+      null,
+      StatusCodes.NO_CONTENT,
+      "Document deleted successfully.",
+      res
+    );
   });
 
 const getFromUser = (
@@ -34,7 +42,7 @@ const getFromUser = (
     let query = Model.find({ _id: req.user.get(property) });
     if (populatePath) query = query.populate(populatePath);
     const doc = await query;
-    sendResponse(doc, 200, "Documents fetched successfully.", res);
+    sendResponse(doc, StatusCodes.OK, "Documents fetched successfully.", res);
   });
 
 const addToUser = (Model: Model<any>, property: string, docId: string) =>
@@ -46,7 +54,7 @@ const addToUser = (Model: Model<any>, property: string, docId: string) =>
     await User.findByIdAndUpdate(req.user._id, {
       [property]: req.user.get(property),
     });
-    sendResponse(doc, 201, "Document added successfully.", res);
+    sendResponse(doc, StatusCodes.CREATED, "Document added successfully.", res);
   });
 
 const deleteOne = (Model: Model<any>) =>
@@ -56,7 +64,12 @@ const deleteOne = (Model: Model<any>) =>
       return next(
         new AppError(StatusCodes.NOT_FOUND, "No document found with that ID")
       );
-    sendResponse(null, 204, "Document deleted successfully.", res);
+    sendResponse(
+      null,
+      StatusCodes.NO_CONTENT,
+      "Document deleted successfully.",
+      res
+    );
   });
 
 const getOne = (Model: Model<any>, populatePath: string) =>
@@ -68,7 +81,7 @@ const getOne = (Model: Model<any>, populatePath: string) =>
       return next(
         new AppError(StatusCodes.NOT_FOUND, "No document found with that ID")
       );
-    sendResponse(doc, 200, "Document fetched successfully.", res);
+    sendResponse(doc, StatusCodes.OK, "Document fetched successfully.", res);
   });
 
 const updateOne = (Model: Model<any>) =>
@@ -81,7 +94,7 @@ const updateOne = (Model: Model<any>) =>
       return next(
         new AppError(StatusCodes.NOT_FOUND, "No document found with that ID")
       );
-    sendResponse(doc, 200, "Document updated successfully", res);
+    sendResponse(doc, StatusCodes.OK, "Document updated successfully", res);
   });
 
 const createOne = (Model: Model<any>) =>
@@ -89,7 +102,12 @@ const createOne = (Model: Model<any>) =>
     const doc = await Model.create(req.body);
     if (!doc)
       return next(new AppError(StatusCodes.NOT_FOUND, "Document not created."));
-    sendResponse(doc, 201, "Document created successfully.", res);
+    sendResponse(
+      doc,
+      StatusCodes.CREATED,
+      "Document created successfully.",
+      res
+    );
   });
 
 const getMultiple = (Model: Model<any>) =>
@@ -107,13 +125,12 @@ const getMultiple = (Model: Model<any>) =>
 
     if (!doc) return next(new AppError(StatusCodes.NOT_FOUND, "Not found"));
 
-    res.status(200).json({
+    res.status(StatusCodes.OK).json({
       status: "success",
       total: totalResults,
       message: "Documents fetched successfully.",
       data: doc,
     });
-    // sendResponse(doc, 200, "Documents fetched successfully.", res);
   });
 
 export default {

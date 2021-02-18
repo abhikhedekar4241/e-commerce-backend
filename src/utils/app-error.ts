@@ -1,5 +1,3 @@
-import StatusCodes from "http-status-codes";
-import { Path } from "jsonfile";
 class AppError extends Error {
   statusCode: number;
   status: string;

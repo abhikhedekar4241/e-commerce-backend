@@ -3,7 +3,7 @@ import { IRequest } from "@shared/constants";
 import { NextFunction } from "express";
 import { Model } from "mongoose";
 import AppError from "../utils/app-error";
-import StatusCodes from "http-status-codes";
+import { StatusCodes } from "http-status-codes";
 import sendResponse from "../utils/send-response";
 import { Response } from "express";
 import APIFeatures from "../utils/api-features";

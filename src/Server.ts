@@ -3,14 +3,34 @@ import morgan from "morgan";
 import path from "path";
 import helmet from "helmet";
 
-import express, { ErrorRequestHandler, Request, Response } from "express";
+import express, {
+  ErrorRequestHandler,
+  Request,
+  Response,
+  NextFunction,
+  Handler,
+} from "express";
 import "express-async-errors";
 
 import BaseRouter from "./routes";
 import globalErrorHandler from "./controllers/error";
+import { IRequest } from "@shared/constants";
 
 const app = express();
 
+// CORS settings
+const allowCrossDomain = function (
+  req: IRequest,
+  res: Response,
+  next: NextFunction
+) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+  res.header("Access-Control-Allow-Headers", "*");
+  next();
+};
+
+app.use(allowCrossDomain as Handler);
 /************************************************************************************
  *                              Set basic express settings
  ***********************************************************************************/
